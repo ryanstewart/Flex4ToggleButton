@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin 
+	width="300" 
+	height="45" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/halo">
+	
+	<!-- Skin by Kevin Hoyt: http://blog.kevinhoyt.org/ -->
+	
+	<!-- Metadata (host component) -->
+	<fx:Metadata>
+		[HostComponent( "spark.components.ToggleButton" )]
+	</fx:Metadata>
+
+	<!-- States -->
+	<s:states>
+		<mx:State name="up"/>
+		<mx:State name="over"/>
+		<mx:State name="down"/>
+		<mx:State name="upAndSelected"/>
+		<mx:State name="overAndSelected"/>
+		<mx:State name="downAndSelected"/>
+		<mx:State name="disabled"/>
+		<mx:State name="disabledAndSelected"/>
+	</s:states>
+	
+	<!-- Transition to play at selection state change -->
+	<s:transitions>
+		<mx:Transition>
+			<s:Move 
+				target="{slider}"
+				disableLayout="false" 
+				duration="250"/>
+		</mx:Transition>
+	</s:transitions>
+	
+	<!-- Control background area -->
+	<s:Rect bottom="0" left="0" right="0" top="0" radiusX="10" radiusY="10">
+		<s:fill>
+			<mx:SolidColor color="0xA7ABAC"/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Rect bottom="1" left="1" right="1" top="1" radiusX="10" radiusY="10">
+		<s:fill>
+			<mx:SolidColor color="0xFFFFFF"/>
+		</s:fill>
+	</s:Rect>		
+	
+	<!-- Label -->
+	<!-- Picks up on label element that toggle expects -->
+	<s:SimpleText id="labelElement" fontSize="16" color="0x000000" fontWeight="bold" verticalCenter="2" left="10"/>
+	
+	<!-- Toggle portion -->
+	<s:Group id="toggle" width="94" height="27" right="10" verticalCenter="0">
+		
+		<!-- Outer border -->
+		<s:Rect bottom="0" left="0" right="0" top="0" radiusX="4" radiusY="4">
+			<s:fill>
+				<mx:LinearGradient rotation="90">
+					<mx:entries>
+						<mx:GradientEntry color="0x7D7D7D" ratio="0"/>
+						<mx:GradientEntry color="0xC0C0C0" ratio="1"/>
+					</mx:entries>
+				</mx:LinearGradient>
+			</s:fill>
+		</s:Rect>						
+		
+		<!-- Slider element -->
+		<s:Group id="slider" x.up="{0 - ( toggle.width / 2 )}" x.over="{0 - ( toggle.width / 2 )}" x.overAndSelected="0" x.upAndSelected="0" width="{toggle.width * 1.5}" height="100%" mask="{slidermask}">
+			
+			<!-- Blue (on) side -->
+			<s:Rect width="{slider.width / 2}" height="100%">
+				<s:fill>
+					<mx:LinearGradient rotation="90">
+						<mx:entries>
+							<mx:GradientEntry color="0x2E59B7" ratio="0"/>
+							<mx:GradientEntry color="0x4185EA" ratio="0.5"/>
+							<mx:GradientEntry color="0x5294F2" ratio="0.5"/>
+							<mx:GradientEntry color="0x7DACF4" ratio="1"/>
+						</mx:entries>
+					</mx:LinearGradient>
+				</s:fill>					
+			</s:Rect>			
+			
+			<!-- Gray (off) side -->
+			<s:Rect width="{slider.width / 2}" height="100%" right="0">
+				<s:fill>
+					<mx:LinearGradient rotation="90">
+						<mx:entries>
+							<mx:GradientEntry color="0xE7E7E7" ratio="0"/>
+							<mx:GradientEntry color="0xEEEEEEE" ratio="0.5"/>
+							<mx:GradientEntry color="0xFAFAFA" ratio="0.5"/>
+							<mx:GradientEntry color="0xFEFEFE" ratio="1"/>
+						</mx:entries>
+					</mx:LinearGradient>
+				</s:fill>					
+			</s:Rect>
+			
+			<!-- Labels -->
+			<s:SimpleText text="ON" left="11" verticalCenter="2" fontSize="16" color="0xFFFFFF" fontWeight="bold"/>
+			<s:SimpleText text="OFF" right="8" verticalCenter="2" fontSize="16" color="0x7D7D7D" fontWeight="bold"/>						
+			
+			<!-- Button -->
+			<s:Group id="button" x="{( slider.width - button.width ) / 2}" width="{toggle.width / 2}" height="100%">
+				
+				<!-- Outer button border -->
+				<s:Rect width="100%" height="100%" radiusX="4" radiusY="4">
+					<s:fill>
+						<mx:LinearGradient rotation="90">
+							<mx:entries>
+								<mx:GradientEntry color="0x7D7D7D" ratio="0"/>
+								<mx:GradientEntry color="0xC0C0C0" ratio="1"/>
+							</mx:entries>
+						</mx:LinearGradient>
+					</s:fill>
+				</s:Rect>
+			
+				<!-- Inner button fill -->
+				<s:Rect x="1" y="1" width="{button.width - 2}" height="{button.height - 2}" radiusX="4" radiusY="4">
+					<s:fill>
+						<mx:LinearGradient rotation="90">
+							<mx:entries>
+								<mx:GradientEntry color="0xCCCCCC" ratio="0"/>
+								<mx:GradientEntry color="0xFBFBFB" ratio="1"/>
+							</mx:entries>
+						</mx:LinearGradient>
+					</s:fill>
+				</s:Rect>			
+				
+			</s:Group>						
+			
+		</s:Group>	
+			
+		<!-- Mask for the slider -->
+		<s:Group id="slidermask" bottom="1" left="1" right="1" top="1">
+		
+			<s:Rect width="100%" height="100%" radiusX="4" radiusY="4">
+				<s:fill>
+					<mx:SolidColor color="0x00FF00"/>
+				</s:fill>
+			</s:Rect>							
+		
+		</s:Group>				
+			
+	</s:Group>	
+		
+</s:Skin>

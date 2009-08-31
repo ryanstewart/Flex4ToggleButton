@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+	xmlns:ai="http://ns.adobe.com/ai/2008"
+	mouseEnabledWhereTransparent="true"
+	>
+	<fx:Metadata>[HostComponent("spark.components.ToggleButton")]</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+		<s:State name="upAndSelected"/>
+		<s:State name="overAndSelected"/>
+		<s:State name="downAndSelected"/>
+		<s:State name="disabledAndSelected"/>
+	</s:states>
+	<s:Group y="1" d:userLabel="heads" x="0" visible.upAndSelected="false" id="group2" visible.overAndSelected="false" visible.downAndSelected="false" visible.disabledAndSelected="false">
+		<s:BitmapImage width="150" height="149" source="@Embed('assets/ai12474700423.png')" ai:knockout="0" d:userLabel="9qcp9v" resizeMode="scale" x="0" y="0"/>
+	</s:Group>
+	<s:Group d:userLabel="tails" x="0" y="0" visible.up="false" id="group1" visible.over="false" visible.down="false" visible.disabled="false">
+		<s:BitmapImage width="150" height="150" source="@Embed('assets/ai12474700424.png')" ai:knockout="0" d:userLabel="Fpn84F" resizeMode="scale"/>
+	</s:Group>
+	<s:transitions>
+		<s:Transition fromState="over" toState="overAndSelected" autoReverse="true">
+			<s:Parallel>
+				<s:Parallel target="{group2}">
+					<s:Fade startDelay="1200" duration="50"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="0" angleXFrom="0" angleZFrom="0" autoCenterTransform="true" angleYTo="360" angleZTo="0" angleXTo="180" d:noAutoDelete="true" startDelay="250" duration="1000"/>
+					<s:Move yBy="-100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="250" duration="1000"/>
+					<s:Move yBy="100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="1250"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="360" angleXFrom="180" angleZFrom="0" autoCenterTransform="true" angleYTo="0" angleZTo="0" angleXTo="0" d:noAutoDelete="true" startDelay="1250"/>
+				</s:Parallel>
+				<s:Parallel target="{group1}">
+					<s:Fade startDelay="1200" duration="50"/>
+					<s:Move xBy="0" yBy="-100" autoCenterTransform="true" d:noAutoDelete="true"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="0" angleZFrom="0" autoCenterTransform="true" angleYTo="360" angleZTo="0" angleXTo="180" d:noAutoDelete="true"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="360" angleXFrom="180" angleZFrom="0" autoCenterTransform="true" angleYTo="0" angleZTo="0" angleXTo="0" d:noAutoDelete="true" startDelay="1200" duration="1000"/>
+					<s:Move xBy="0" yBy="100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="1200" duration="1000"/>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="overAndSelected" toState="over" autoReverse="true">
+			<s:Parallel>
+				<s:Parallel target="{group1}">
+					<s:Fade startDelay="1200" duration="50"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="0" angleXFrom="0" angleZFrom="0" autoCenterTransform="true" angleYTo="360" angleZTo="0" angleXTo="180" d:noAutoDelete="true" startDelay="250" duration="1000"/>
+					<s:Move yBy="-100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="250" duration="1000"/>
+					<s:Move yBy="100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="1250"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="360" angleXFrom="180" angleZFrom="0" autoCenterTransform="true" angleYTo="0" angleZTo="0" angleXTo="0" d:noAutoDelete="true" startDelay="1250"/>
+				</s:Parallel>
+				<s:Parallel target="{group2}">
+					<s:Fade startDelay="1200" duration="50"/>
+					<s:Move xBy="0" yBy="-100" autoCenterTransform="true" d:noAutoDelete="true"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="0" angleZFrom="0" autoCenterTransform="true" angleYTo="360" angleZTo="0" angleXTo="180" d:noAutoDelete="true"/>
+					<s:Rotate3D autoCenterProjection="true" angleYFrom="360" angleXFrom="180" angleZFrom="0" autoCenterTransform="true" angleYTo="0" angleZTo="0" angleXTo="0" d:noAutoDelete="true" startDelay="1200" duration="1000"/>
+					<s:Move xBy="0" yBy="100" autoCenterTransform="true" d:noAutoDelete="true" startDelay="1200" duration="1000"/>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
+</s:Skin>

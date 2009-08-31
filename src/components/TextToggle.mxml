@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009">
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+		<s:State name="upAndSelected"/>
+		<s:State name="overAndSelected"/>
+		<s:State name="downAndSelected"/>
+		<s:State name="disabledAndSelected"/>
+	</s:states>
+	<fx:Metadata>
+		[HostComponent("spark.components.ToggleButton")]
+	</fx:Metadata>
+
+	<s:RichText fontSize="12" fontFamily="Arial" color="0x4769C4" 
+				text="Up" text.over="Over" 
+				text.down="Down" text.disabled="Disabled" 
+				text.upAndSelected="upAndSelected" 
+				text.overAndSelected="overAndSelected" 
+				text.downAndSelected="downAndSelected" 
+				text.disabledAndSelected="disabledAndSelected"/>
+</s:Skin>
+
+	
+	
+	
